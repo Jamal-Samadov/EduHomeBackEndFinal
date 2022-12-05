@@ -1,0 +1,28 @@
+﻿@model Slider
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Slider</h4> <br /> <br /> <br />
+                <h3>Slider Image</h3>
+                <br /> <br /> <br />
+                <img src="~/assets/img/slider/@Model.ImageUrl" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
+                    <hr />
+                    <br /> <br /> <br />
+                    <div class="form-group">
+                        <h3 class="card-title">Header title caption</h3>
+                        <em>@Html.Raw(@Model.Headtitle)</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Subtitle caption</h3>
+                        <em>@Html.Raw(Model.Subtitle)</em>
+                    </div>
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

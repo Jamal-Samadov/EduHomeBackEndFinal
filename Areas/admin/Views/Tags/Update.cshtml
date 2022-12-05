@@ -1,0 +1,19 @@
+﻿@model TagsUpdateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Tags</h4> <br /> <br /> <br />
+                <form class="forms-sample" method="post" asp-action="update" >
+                    <div class="form-group">
+                        <label asp-for="TagsName">Tags Name</label>
+                        <input asp-for="TagsName" class="form-control" placeholder="Tags Name" />
+                        <span asp-validation-for="TagsName" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

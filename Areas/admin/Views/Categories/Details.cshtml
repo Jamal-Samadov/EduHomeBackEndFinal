@@ -1,0 +1,27 @@
+﻿@model Category
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Category</h4> <br /> <br /> <br />
+                <h3>Slider Image</h3>
+                <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update">
+                    <hr />
+                    <br /> <br /> <br />
+                    <div class="form-group">
+                        <h3 class="card-title">Category Name caption</h3>
+                        <em>@Model.CategoryName</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Quantity caption</h3>
+                        <em>@Model.Quantity</em>
+                    </div>
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

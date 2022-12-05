@@ -1,0 +1,59 @@
+﻿@model SliderCreateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Create slider</h4>
+                <form class="forms-sample" method="post" asp-controller="sliders" asp-action="Create" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Images</label>
+                        <input asp-for="Image" class="form-control" placeholder="Name" accept="image/*">
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Headtitle">Head title</label>
+                        <textarea asp-for="Headtitle" class="form-control" id="editorSliderHead" placeholder="Head title"></textarea>
+                        <span asp-validation-for="Headtitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Subtitle">Sub title</label>
+                        <textarea asp-for="Subtitle" class="form-control" id="editorSliderSub" placeholder="Subtitle"></textarea>
+                        <span asp-validation-for="Subtitle" class="text-danger"></span>
+                    </div>
+                    <button type="submit" id="swelSlider" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editorSliderHead'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorSliderSub'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
+@section sweet{
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('#swelSlider').click(function () {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Yeni bir slider yüklənildi',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
+    </script>
+}

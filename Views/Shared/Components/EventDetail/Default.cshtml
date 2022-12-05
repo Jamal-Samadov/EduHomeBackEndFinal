@@ -1,0 +1,34 @@
+﻿@{
+    List<Event> events = Model;
+
+}
+
+
+@foreach (var eventss in events.OrderByDescending(x=>x.Id))
+{
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-event mb-60">
+            <div class="event-img">
+                <a asp-controller="Events" asp-action="Details" asp-route-id="@eventss.Id">
+                    <img src="~/assets/img/event/@eventss.ImageUrl" alt="event">
+                    <div class="course-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+                <div class="event-date">
+                    <h3><span>Date : </span>@eventss.Date</h3>
+                </div>
+            </div>
+            <div class="event-content text-left">
+                <h4><a asp-controller="Events" asp-action="Details" asp-route-id="@eventss.Id">@eventss.EventName</a></h4>
+                <ul>
+                    <li><span>time : </span>@eventss.Time</li>
+                    <li><span>Venue : </span>@eventss.Location</li>
+                </ul>
+                <div class="event-content-right">
+                    <a class="default-btn" asp-controller="Events" asp-action="Details" asp-route-id="@eventss.Id">join now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

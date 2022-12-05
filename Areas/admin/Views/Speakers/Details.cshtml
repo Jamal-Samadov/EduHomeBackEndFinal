@@ -1,0 +1,36 @@
+﻿@model Speaker
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Speaker</h4> <br /> <br /> <br />
+                <h3>Speaker Image</h3>
+                <br /> <br /> <br />
+                <img src="~/assets/img/@Model.ImageUrl" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
+                    <hr />
+                    <br /> <br /> <br />
+                    <div class="form-group">
+                        <h3 class="card-title">Name title caption</h3>
+                        <em>@Model.Name</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Surname caption</h3>
+                        <em>@Model.Surname</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Job caption</h3>
+                        <em>@Model.Job</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Position caption</h3>
+                        <em>@Model.Position</em>
+                    </div>
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+﻿@model CourseCreateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Create course</h4>
+                <form class="forms-sample" method="post" asp-controller="Courses" asp-action="Create" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Images</label>
+                        <input asp-for="Image" class="form-control" placeholder="Name" accept="image/*">
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Course Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Course Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Course Description</label>
+                        <textarea asp-for="Description" class="form-control" id="editorCourseDesc" placeholder="Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="About">About</label>
+                        <textarea asp-for="About" class="form-control" id="editorCourseAbout" placeholder="About"></textarea>
+                        <span asp-validation-for="About" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Apply">How to apply</label>
+                        <textarea asp-for="Apply" class="form-control" id="editorCourseApply" placeholder="Apply"></textarea>
+                        <span asp-validation-for="Apply" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Certification">Certification</label>
+                        <textarea asp-for="Certification" class="form-control" id="editorCourseCert" placeholder="Certification"></textarea>
+                        <span asp-validation-for="Certification" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reply">Leave a reply</label >
+                        <textarea asp-for="Reply" class="form-control" id="editorCourseReply" placeholder="Reply"></textarea>
+                        <span asp-validation-for="Reply" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Starts">Starts Date</label>
+                        <input asp-for="Starts" class="form-control" placeholder="Starts">
+                        <span asp-validation-for="Starts" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Duration">Duration period</label>
+                        <input asp-for="Duration" class="form-control" placeholder="Duration">
+                        <span asp-validation-for="Duration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ClassDuration">Class Duration (Lesson time)</label>
+                        <input asp-for="ClassDuration" class="form-control" placeholder="Class Duration">
+                        <span asp-validation-for="ClassDuration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SkillLevel">Skill Level</label>
+                        <input asp-for="SkillLevel" class="form-control" placeholder="Skill Level ">
+                        <span asp-validation-for="SkillLevel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Language">Language</label>
+                        <input asp-for="Language" class="form-control" placeholder="Language">
+                        <span asp-validation-for="Language" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Student">Total Student</label>
+                        <input asp-for="Student" class="form-control" placeholder="Student">
+                        <span asp-validation-for="Student" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Assesment">Assesment</label>
+                        <input asp-for="Assesment" class="form-control" placeholder="Assesment">
+                        <span asp-validation-for="Assesment" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseFee">Course Fee</label>
+                        <input asp-for="CourseFee" class="form-control" placeholder="CourseFee">
+                        <span asp-validation-for="CourseFee" class="text-danger"></span>
+                    </div>
+                    <button type="submit" id="swelCourse" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editorCourseDesc'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorCourseAbout'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorCourseApply'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorCourseCert'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorCourseReply'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
+
+@section sweet{
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('#swelCourse').click(function () {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Yeni bir kurs yüklənildi',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
+    </script>
+}

@@ -1,0 +1,84 @@
+﻿@model EventCreateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Create events</h4>
+                <form class="forms-sample" method="post" asp-controller="events" asp-action="Create" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Images</label>
+                        <input asp-for="Image" class="form-control" placeholder="Image" accept="image/*">
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EventName">Event Name</label>
+                        <input asp-for="EventName" class="form-control" placeholder="Event Name" />
+                        <span asp-validation-for="EventName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Event description</label>
+                        <textarea asp-for="Description" class="form-control" id="editorEventDesc" placeholder="Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date">Date</label>
+                        <input asp-for="Date" class="form-control" placeholder="Date" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Time">Time</label>
+                        <input asp-for="Time" class="form-control" placeholder="Time" />
+                        <span asp-validation-for="Time" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Location">Location</label>
+                        <input asp-for="Location" class="form-control" placeholder="Location" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reply">Leave a reply about event</label>
+                        <textarea asp-for="Reply" class="form-control" placeholder="Reply"></textarea>
+                        <span asp-validation-for="Reply" id="editorEventReply" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SpeakerIds">Choose The Speakers</label>
+                        <select asp-for="SpeakerIds" asp-items="Model.Speakers" class="form-control"></select>
+                        <span asp-validation-for="SpeakerIds" class="text-danger"></span>
+                    </div>
+                    <button type="submit" id="swelEvent" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-primary" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section sweet{
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('#swelEvent').click(function () {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Yeni bir event yüklənildi',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
+    </script>
+}
+    @section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editorEventDesc'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorEventReply'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

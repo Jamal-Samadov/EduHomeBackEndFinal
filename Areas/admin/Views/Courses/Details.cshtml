@@ -1,0 +1,76 @@
+﻿@model Course
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Course</h4> <br /> <br /> <br />
+                <h3>Course Image</h3>
+                <br /> <br /> <br />
+                <img src="~/assets/img/course/@Model.ImageUrl" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
+                    <hr />
+                    <br /> <br /> <br />
+                    <div class="form-group">
+                        <h3 class="card-title">Course Name title caption</h3>
+                        <em>@Model.Name</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Course description caption</h3>
+                        <em>@Html.Raw(Model.Description)</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">About caption</h3>
+                        <em>@Html.Raw(Model.About)</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Apply caption</h3>
+                        <em>@Html.Raw(Model.Apply)</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Certification caption</h3>
+                        <em>@Html.Raw(Model.Certification)</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Starts caption</h3>
+                        <em>@Model.Starts</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Duration caption</h3>
+                        <em>@Model.Duration</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Student total caption</h3>
+                        <em>@Model.Student</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Assesment caption</h3>
+                        <em>@Model.Assesment</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Course Fee caption</h3>
+                        <em>@Model.CourseFee</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Reply caption</h3>
+                        <em>@Html.Raw(@Model.Reply)</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Class duration caption</h3>
+                        <em>@Model.ClassDuration</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Skill Level caption</h3>
+                        <em>@Model.SkillLevel</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Language caption</h3>
+                        <em>@Model.Language</em>
+                    </div>
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

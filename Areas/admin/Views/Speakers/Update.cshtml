@@ -1,0 +1,39 @@
+﻿@model SpeakerUpdateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Create Speaker</h4>
+                <form class="forms-sample" method="post" asp-controller="Speakers" asp-action="update" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Images</label>
+                        <input asp-for="Image" class="form-control" placeholder="Name" accept="image/*">
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Speaker Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Surname">Speaker Surname</label>
+                        <input asp-for="Surname" class="form-control" placeholder="Surname" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Job">Speaker Job</label>
+                        <input asp-for="Job" class="form-control" placeholder="Job">
+                        <span asp-validation-for="Job" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Position">Position</label>
+                        <input asp-for="Position" class="form-control" placeholder="Position">
+                        <span asp-validation-for="Position" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

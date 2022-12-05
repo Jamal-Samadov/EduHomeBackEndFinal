@@ -1,0 +1,268 @@
+﻿@{
+    HomeViewModel homeViewModel = Model;
+
+    var sliders = homeViewModel.Sliders;
+    var chooses = homeViewModel.Chooses;
+    var blogs = homeViewModel.Blogs;
+    var courses = homeViewModel.Courses;
+}
+@inject LayoutService layoutService
+<!-- Background Area Start -->
+<section id="slider-container" class="slider-area">
+    @foreach (var slider in sliders)
+    {  
+      <div class="slider-owl owl-theme owl-carousel">
+            <!-- Start Slingle Slide -->
+            <div class="single-slide item">
+                <!-- Start Slider Content -->
+                <div class="slide-content">
+                    <h2>@Html.Raw(slider.Headtitle)</h2>
+                    <p>@Html.Raw(slider.Subtitle)</p>
+                    <a class="default-btn" asp-controller="about" asp-action="index">LEARN MORE</a>
+                </div>
+                <img src="~/assets/img/slider/@slider.ImageUrl" alt="course" />
+                <div class="slider-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-md-offset-left-5">
+                                <div class="slide-content-wrapper">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Start Slider Content -->
+            </div>
+            <!-- End Slingle Slide -->
+    </div>
+    }
+</section>
+
+<!-- Background Area End -->
+<!-- Notice Start -->
+<section class="notice-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-left">
+                    <h3>notice board</h3>
+                    <div class="single-notice-left mb-25 pb-25">
+                        <h4>5, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left mb-25 pb-25">
+                        <h4>4, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left pb-75">
+                        <h4>3, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left mb-25 pb-25">
+                        <h4>5, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left mb-25 pb-25">
+                        <h4>4, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left pb-70">
+                        <h4>3, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left mb-25 pb-25">
+                        <h4>5, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left mb-25 pb-25">
+                        <h4>4, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                    <div class="single-notice-left pb-70">
+                        <h4>3, June 2017</h4>
+                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-right">
+                    <div class="single-notice-right mb-25 pb-25">
+                        <h3>PROFESSIONAL TEACHER</h3>
+                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
+                    </div>
+                    <div class="single-notice-right mb-25 pb-25">
+                        <h3>Online courses</h3>
+                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
+                    </div>
+                    <div class="single-notice-right">
+                        <h3>easy to addmission</h3>
+                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Notice End -->
+<!-- Choose Start -->
+<section class="choose-area pb-85 pt-77">
+    <div class="container">
+        <div class="row">
+            @foreach (var choose in chooses)
+            {   
+              <div class="col-md-8 col-md-offset-left-4 col-sm-8 col-md-offset-left-4">
+                <div class="choose-content text-left">
+                    <h2>@choose.MainTitle</h2>
+                    <p>@choose.Subtitle</p>
+                    <a class="default-btn" href="course-details.html">view courses</a>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Choose Area End -->
+<!-- Courses Area Start -->
+<div class="courses-area pt-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/assets/img/setting/@layoutService.GetSettings().Result.FirstOrDefault(x=>x.Key.Trim().ToLower()=="smallLogo")?.Value" alt="section-title">
+                    <h2>COURSES WE OFFER</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var course in courses.OrderByDescending(x=>x.Id).Take(3))
+            {
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-course">
+                    <div class="course-img">
+                            <a asp-controller="Courses" asp-action="Details" asp-route-id="@course.Id">
+                            <img src="~/assets/img/course/@course.ImageUrl" alt="course">
+                            <div class="course-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="course-content">
+                            <a asp-controller="Courses" asp-action="Details" asp-route-id="@course.Id">@course.Name</a>
+                            <p>@Html.Raw(course.Description)</p>
+                            <a class="default-btn" asp-controller="Courses" asp-action="Details" asp-route-id="@course.Id">read more</a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Courses Area End -->
+<!-- Event Area Start -->
+<div class="event-area one text-center pt-140 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="~/assets/img/setting/@layoutService.GetSettings().Result.FirstOrDefault(x=>x.Key.Trim().ToLower()=="smallLogo")?.Value" alt="section-title">
+                    <h2>UPCOMMING EVENTS</h2>
+                </div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("Event")
+    </div>
+</div>
+<!-- Event Area End -->
+<!-- Testimonial Area Start -->
+<div class="testimonial-area pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
+                    <div class="single-testimonial">
+                        <div class="testimonial-info">
+                            <div class="testimonial-img">
+                                <img src="~/assets/img/testimonial/testimonial.jpg" alt="testimonial">
+                            </div>
+                            <div class="testimonial-content">
+                                <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and I will give you a coete account of the system, and expound the actual</p>
+                                <h4>David Morgan</h4>
+                                <h5>Student, CSE</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+<!-- Blog Area Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="~/assets/img/setting/@layoutService.GetSettings().Result.FirstOrDefault(x=>x.Key.Trim().ToLower()=="smallLogo")?.Value" alt="section-title">
+                    <h2>LATEST FROM BLOG</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var blog in blogs.OrderByDescending(x=>x.Id).Take(3))
+           {
+             <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-blog">
+                    <div class="blog-img">
+                            <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id"><img src="~/assets/img/blog/@blog.ImageUrl" alt="blog"></a>
+                        <div class="blog-hover">
+                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-top">
+                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
+                        </div>
+                        <div class="blog-bottom">
+                            <h2><a href="blog-details.html">@blog.BlogName</a></h2>
+                            <a href="blog-details.html">read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           }
+        </div>
+    </div>
+</div>
+<!-- Blog Area End -->
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="subscribe-content section-title text-center">
+                    <h2>subscribe our newsletter</h2>
+                    <p>I must explain to you how all this mistaken idea </p>
+                </div>
+                <div class="newsletter-form mc_embed_signup">
+                    <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll" class="mc-form">
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                            <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
+                        </div>
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->

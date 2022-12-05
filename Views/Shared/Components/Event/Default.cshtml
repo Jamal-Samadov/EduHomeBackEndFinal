@@ -1,0 +1,61 @@
+﻿@{
+    List<Event> events = Model;
+    int count = Model.Count;
+}
+
+
+
+<div class="row">
+    @for (int i = 0; i < count; i += 2)
+    {
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="single-event mb-35">
+                <div class="event-date">
+                    <h3><a asp-controller="events" asp-action="Details" asp-route-id="@events[i].Id"><span>@events[i].Date</span></a></h3>
+                </div>
+                <div class="event-content text-left">
+                    <div class="event-content-left">
+                        <h4><a asp-controller="events" asp-action="Details" asp-route-id="@events[i].Id">@events[i].EventName</a></h4>
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i>@events[i].Time</li>
+                            <li><i class="fa fa-map-marker"></i>@events[i].Location</li>
+                        </ul>
+                    </div>
+                    <div class="event-content-right">
+                        <a class="default-btn" asp-controller="events" asp-action="Details" asp-route-id="@events[i].Id">join now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (events.Count > i + 1)
+        {
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="single-event mb-35">
+                    <div class="event-date">
+                        <h3><a asp-controller="events" asp-action="Details" asp-route-id="@events[i+1].Id"><span>@events[i+1].Date</span></a></h3>
+                    </div>
+                    <div class="event-content text-left">
+                        <div class="event-content-left">
+                            <h4><a asp-controller="events" asp-action="Details" asp-route-id="@events[i+1].Id">@events[i+1].EventName</a></h4>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>@events[i+1].Time</li>
+                                <li><i class="fa fa-map-marker"></i>@events[i+1].Location</li>
+                            </ul>
+                        </div>
+                        <div class="event-content-right">
+                            <a class="default-btn" asp-controller="events" asp-action="Details" asp-route-id="@events[i+1].Id">join now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+
+
+
+
+

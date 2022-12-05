@@ -1,0 +1,50 @@
+﻿@model BlogUpdateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update blog</h4> <br /> <br /> <br />
+                <img src="~/assets/img/@Model.ImageUrl" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" method="post" asp-action="Update" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Images</label>
+                        <input asp-for="Image" class="form-control" placeholder="Name" accept="image/*">
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BlogName">Blog Name</label>
+                        <input asp-for="BlogName" class="form-control" placeholder="Blog Name" />
+                        <span asp-validation-for="BlogName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BlogDescription">Blog Description</label>
+                        <textarea asp-for="BlogDescription" class="form-control" id="editor" placeholder="Blog Description"></textarea>
+                        <span asp-validation-for="BlogDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reply">Leave a reply</label>
+                        <textarea asp-for="Reply" class="form-control editor" id="editorReply" placeholder="Leave a reply"></textarea>
+                        <span asp-validation-for="Reply" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorReply'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

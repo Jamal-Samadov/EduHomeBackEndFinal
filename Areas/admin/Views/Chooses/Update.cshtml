@@ -1,0 +1,39 @@
+﻿@model ChooseUpdateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Choose Eduhome</h4> <br /> <br /> <br />
+                <form class="forms-sample" method="post" asp-action="update" >
+                    <div class="form-group">
+                        <label asp-for="MainTitle">Main Title</label>
+                        <textarea asp-for="MainTitle" class="form-control" id="editorMain" placeholder="MainTitle" accept="image/*"></textarea>
+                        <span asp-validation-for="MainTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Subtitle">Subtitle</label>
+                        <textarea asp-for="Subtitle" class="form-control" placeholder="Subtitle"></textarea>
+                        <span asp-validation-for="Subtitle" id="editorSub" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editorMain'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editorSub'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

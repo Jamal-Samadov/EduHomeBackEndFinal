@@ -1,0 +1,54 @@
+﻿@model Event
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Event</h4> <br /> <br /> <br />
+                <h3>Event Image</h3>
+                <br /> <br /> <br />
+                <img src="~/assets/img/event/@Model.ImageUrl" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
+                    <hr />
+                    <br /> <br /> <br />
+                    <div class="form-group">
+                        <h3 class="card-title">Event name caption</h3>
+                        <em>@Model.EventName</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Event description caption</h3>
+                        <em>@Html.Raw(Model.Description)</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Date caption</h3>
+                        <em>@Model.Date</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Time caption</h3>
+                        <em>@Model.Time</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Location caption</h3>
+                        <em>@Model.Location</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Reply about event caption</h3>
+                        <em>@Html.Raw(Model.Reply)</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

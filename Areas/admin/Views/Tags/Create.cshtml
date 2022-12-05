@@ -1,0 +1,34 @@
+﻿@model TagsCreateModel
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Create tags</h4>
+                <form class="forms-sample" method="post" asp-action="Create">
+                    <div class="form-group">
+                        <label asp-for="TagsName">Tags Name</label>
+                        <input asp-for="TagsName" class="form-control" placeholder=" Tags Name" />
+                        <span asp-validation-for="TagsName" class="text-danger"></span>
+                    </div>
+                    <button type="submit" id="swelTag" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section sweet{
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('#swelTag').click(function () {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Yeni bir Tag yüklənildi',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
+    </script>
+}

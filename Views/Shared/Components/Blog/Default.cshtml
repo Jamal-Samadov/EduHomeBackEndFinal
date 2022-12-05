@@ -1,0 +1,27 @@
+﻿@{
+    List<Blog> blogs = Model;
+}
+
+
+@foreach (var blog in blogs.OrderByDescending(x=>x.Id))
+{
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-blog">
+            <div class="blog-img">
+                <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id"><img src="~/assets/img/blog/@blog.ImageUrl" alt="blog"></a>
+                <div class="blog-hover">
+                    <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+            <div class="blog-content">
+                <div class="blog-top">
+                    <p>By Alex  /  June 20, 2017</p>
+                </div>
+                <div class="blog-bottom">
+                    <h2><a href="blog-details.html">@blog.BlogName </a></h2>
+                    <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id">read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

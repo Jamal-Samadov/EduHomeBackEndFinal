@@ -1,0 +1,80 @@
+﻿@model Teacher
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Teacher</h4> <br /> <br /> <br />
+                <h3>Teacher Image</h3>
+                <br /> <br /> <br />
+                <img src="~/assets/img/teacher/@Model.ImageUrl" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
+                    <hr />
+                    <br /> <br /> <br />
+                    <div class="form-group">
+                        <h3 class="card-title">Fullname title caption</h3>
+                        <em>@Model.TeacherFullName</em>
+                    </div>
+                    <br /> <br /> <br />
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">About caption</h3>
+                        <em>@Model.About</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Degree caption</h3>
+                        <em>@Model.Degree</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Experience caption</h3>
+                        <em>@Model.Experience</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Hobbies caption</h3>
+                        <em>@Model.Hobbies</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Faculty caption</h3>
+                        <em>@Model.Faculty</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Mail caption</h3>
+                        <em>@Model.Mail</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Phone number caption</h3>
+                        <em>@Model.Phone</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Skype caption</h3>
+                        <em>@Model.Skype</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Language caption</h3>
+                        <em>@Model.Language</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">TeamLeader caption</h3>
+                        <em>@Model.TeamLeader</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Development caption</h3>
+                        <em>@Model.Development</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Design caption</h3>
+                        <em>@Model.Design</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Innovation caption</h3>
+                        <em>@Model.Innovation</em>
+                    </div>
+                    <div class="form-group">
+                        <h3 class="card-title">Communication caption</h3>
+                        <em>@Model.Communication</em>
+                    </div>
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

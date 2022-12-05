@@ -1,0 +1,28 @@
+﻿@model Setting
+<div class="row w-100">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Detail Settings</h4> <br /> <br /> <br />
+                <h3>Setting Image</h3>
+                <br /> <br /> <br />
+                <img src="~/assets/img/setting/@Model.Photo" style="height:150px" /> <br /> <br /> <br />
+                <form class="forms-sample" asp-action="Update" enctype="multipart/form-data">
+                    <hr />
+                    <br /> <br /> <br /> 
+                    <div class="form-group">
+                        <h3 class="card-title">Key caption</h3>
+                        <em>@Model.Key</em>
+                    </div>
+                    <br /> <br /> <br /> 
+                    <hr />
+                    <div class="form-group">
+                        <h3 class="card-title">Value caption</h3>
+                        <em>@Model.Value</em>
+                    </div>
+                    <button class="btn btn-primary" asp-action="Index">Back to Dashboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
